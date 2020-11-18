@@ -1,7 +1,6 @@
 characters = {
 	'John': {
 		'description': 'just a regular accountant',
-		'talent': 'math',
 		'inventory': {
 			'stapler': 'useful for binding paper',
 			'ruler': 'great for drawing lines and measuring',
@@ -10,11 +9,10 @@ characters = {
 	},
 	'Harold': {
 		'description': 'a pretty good chef',
-		'talent': 'cooking',
 		'inventory': {
-			'cheese', 'a nice little snack',
-			'knife', 'useful for more than cooking',
-			'restaurant keys', 'only forgotten at home occasionally'
+			'cheese': 'a nice little snack',
+			'knife': 'useful for more than cooking',
+			'restaurant keys': 'only forgotten at home occasionally'
 		}
 	},
 }
@@ -26,11 +24,13 @@ locations = {
 	'harolds home': 'a regular house except every room has been turned into a kitchen'
 }
 
-# Print name, description and power for every character
+# Print name, description, and inventory for every character
 for name, data in characters.items():
-	print(f'{name} is {data["description"]}',
-		f'{name} is good at {data["talent"]}', sep='\n')
-print() # blank space
+	print(f'{name} is {data["description"]}')
+	print(f'{name}\'s inventory')
+	for item, desc in data['inventory'].items():
+		print(f'- {item.capitalize()}\n\t{desc.capitalize()}')
+	print() # blank space
 
 # Print name and description of locations
 for location, desc in locations.items():
